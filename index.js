@@ -8,7 +8,7 @@ const httpServer = http.createServer();
   
 const io = new Server(httpServer, {
   cors: {
-    origin: [process.env.SETDISCONNECT_URL, "https://admin.socket.io/"], // Replace with your frontend URL
+    origin: ["http://localhost:3000", "https://admin.socket.io"], // Replace with your frontend URL
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
     credentials: true,
