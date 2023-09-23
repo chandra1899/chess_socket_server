@@ -4,17 +4,7 @@ const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
 
-const httpServer = http.createServer((req, res) => {
-    // Set the response content type to plain text
-    res.setHeader('Content-Type', 'text/plain');
-  
-    // Handle different routes
-    if (req.url === '/') {
-      res.write('Welcome to the homepageof chess_game socket server!');
-    }
-    // End the response
-    res.end();
-  });
+const httpServer = http.createServer();
   
 const io = new Server(httpServer, {
   cors: {
@@ -82,7 +72,6 @@ const io = new Server(httpServer, {
   });
 });
 
-const PORT = 3001;
-httpServer.listen(PORT, () => {
-  console.log(`Socket.io server is running on port ${PORT}`);
+httpServer.listen(process.env.PORT || 3001, () => {
+  console.log(`Socket.io server is running on port ${process.env.PORT || 3001}`);
 });
