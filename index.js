@@ -26,32 +26,28 @@ const io = new Server(httpServer, {
   });
 
   await socket.on("send_msg", async (data) => {
-    // console.log(data, "DATA");
-    if(data.roomId){
+    console.log("send_msg");
       await io.to(data.roomId).emit("receive_msg", data);
-    }
   });
 
   await socket.on("move", async (data) => {
-    // console.log("data",data);
+    console.log("move");
    
-    if(data.roomId){
       await io.to(data.roomId).emit("moved",data);
-    }
   });
 
   await socket.on("receive_draw_req", async (email,roomName) => {
-    // console.log("email",email);
+    console.log("receive_draw_req");
       await io.to(roomName).emit("receive_draw_req",email);    
   });
 
   await socket.on("game_over", async (roomName,email) => {
-    // console.log("email",email);
+    console.log("game_over");
       await io.to(roomName).emit("game_over",email);  
   });
 
   await socket.on("draw_accepted", async (email,roomName) => {
-    // console.log("email",email);
+    console.log("draw_accepted");
       await io.to(roomName).emit("draw_accepted",email);    
   });
 
