@@ -22,7 +22,7 @@ const io = new Server(httpServer, {
       socket.email=email;
       socket.roomName=roomName
       await socket.join(roomName);
-      // console.log('room and email',roomName,email);
+      console.log('room and email',roomName,email);
   });
 
   await socket.on("send_msg", async (data) => {
