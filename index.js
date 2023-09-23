@@ -69,6 +69,9 @@ const io = new Server(httpServer, {
         roomName:socket.roomName
       })
     })
+    if(res.status===200){
+      console.log(`${socket.email} is disconnected from ${socket.roomName}`);
+    }
   });
 });
 
