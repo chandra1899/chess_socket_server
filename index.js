@@ -56,7 +56,7 @@ const io = new Server(httpServer, {
   });
 
   socket.on('disconnect', async function () {
-    let res=await fetch(`${process.env.SETDISCONNECT_URL}api/setdisconnected`,{
+    let res=await fetch(`http://localhost:3000/api/setdisconnected`,{
       method:'POST',
       headers:{
         'Access-Control-Allow-Origin': '*',
