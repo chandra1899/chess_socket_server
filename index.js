@@ -71,6 +71,6 @@ io.on("connection",async  (socket) => {
     })
 });
 
-httpServer.listen(3001, () => {
-  console.log(`Socket.io server is running on port ${3001}`);
+httpServer.listen(process.env.PORT || 3001, () => {
+  console.log(`Socket.io server is running on port ${process.env.PORT || 3001}`);
 });
